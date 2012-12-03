@@ -46,7 +46,20 @@ function getListaArchivos(lista)
 			imagen.alt = 'foto';
 			vinculoImagen.appendChild(imagen);
 			eliminar.href = '#';
-			eliminar.onclick = "eliminarArchivo('"+lista[i].name+"');";
+			eliminar.onclick = function()
+								{
+									try
+									{
+										if(confirm('Seguro desea eliminar el archivo '+lista[i].name+'?'))
+										{
+											directorioArchivos.getFile(lista[i].name,getArchivoEliminar,errorArchivo);
+										}
+									}
+									catch(err)
+									{
+										alert(err);
+									}
+								}
 			eliminar.appendChild(textoEliminar);
 			
 			columnaImagen.appendChild(vinculoImagen);
