@@ -13,6 +13,11 @@ function manejadorArchivos()
 	this.directorioRoot = null;	
 	this.guardarArchivo = guardarArchivo;
 	
+	function errorArchivo(error)
+	{
+		alert('Error al guardar archivo: '+error.code);
+	}
+	
 	function archivoGuardado(entry)
 	{
 		alert('Archivo guardado');
