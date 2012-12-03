@@ -1,4 +1,14 @@
 // JavaScript Document
+function onLoad() 
+{
+	document.addEventListener("deviceready", onDeviceReady, false);
+}
+
+function onDeviceReady() 
+{
+	iniciarDirectorios();
+}
+
 function capturarFoto() 
 {
 	navigator.camera.getPicture(mostrarFoto, errorFoto, { quality: 50,
