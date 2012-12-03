@@ -23,34 +23,40 @@ function archivoGuardado(entry)
 
 function getListaArchivos(lista)
 {
-	var tabla = document.getElementById('tablalista');
-	for(var i = 0; i<=lista.length; i++)
-	{		
-		var fila = document.createElement('tr');
-		var columnaImagen = document.createElement('td');
-		var columnaNombre = document.createElement('td');
-		var columnaEliminar = document.createElement('td');
-		var imagen = document.createElement('img');
-		var nombre = document.createTextNode(lista[i].name);
-		var eliminar = document.createElement('a');
-		var textoEliminar = document.createTextNode('Eliminar');
-		
-		fila.id = lista[i].name;
-		imagen.src = lista[i].fullPath;
-		imagen.width = '80px';
-		imagen.height = '80px';
-		imagen.alt = 'foto';
-		eliminar.href = '#';
-		eliminar.onclick = 'eliminarArchivo('+lista[i].name+');';
-		eliminar.appendChild(textoEliminar);
-		
-		columnaImagen.appendChild(imagen);
-		columnaNombre.appendChild(nombre);
-		columnaEliminar.appendChild(eliminar);
-		fila.appendChild(columnaImagen);
-		fila.appendChild(columnaNombre);
-		fila.appendChild(columnaEliminar);
-		tabla.appendChild(fila);
+	try
+	{
+		var tabla = document.getElementById('tablalista');
+		for(var i = 0; i<=lista.length; i++)
+		{		
+			var fila = document.createElement('tr');
+			var columnaImagen = document.createElement('td');
+			var columnaNombre = document.createElement('td');
+			var columnaEliminar = document.createElement('td');
+			var imagen = document.createElement('img');
+			var nombre = document.createTextNode(lista[i].name);
+			var eliminar = document.createElement('a');
+			var textoEliminar = document.createTextNode('Eliminar');
+			
+			fila.id = lista[i].name;
+			imagen.src = lista[i].fullPath;
+			imagen.width = '80px';
+			imagen.height = '80px';
+			imagen.alt = 'foto';
+			eliminar.href = '#';
+			eliminar.onclick = 'eliminarArchivo('+lista[i].name+');';
+			eliminar.appendChild(textoEliminar);
+			
+			columnaImagen.appendChild(imagen);
+			columnaNombre.appendChild(nombre);
+			columnaEliminar.appendChild(eliminar);
+			fila.appendChild(columnaImagen);
+			fila.appendChild(columnaNombre);
+			fila.appendChild(columnaEliminar);
+			tabla.appendChild(fila);
+		}
+	}
+	catch(err){
+		alert(err);
 	}
 }
 
