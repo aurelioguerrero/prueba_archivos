@@ -48,9 +48,9 @@ function intentarGuardado(fileSystem)
 	
 	rutaRaiz = fileSystem.root.fullPath;
 	alert('Ruta root: '+rutaRaiz);
-	alert('Ruta archivo: '+nombre.substring(rutaRaiz.length+1));
+	alert('Ruta archivo: '+rutaArchivo.substring(rutaRaiz.length+1));
 	
-	fileSystem.root.getFile(nombre.substring(rutaRaiz.length+1), {create: false, exclusive: false}, obtenerArchivo, errorArchivo);
+	fileSystem.root.getFile(rutaArchivo.substring(rutaRaiz.length+1), {create: false, exclusive: false}, obtenerArchivo, errorArchivo);
 	fileSystem.root.getDirectory('Album Fotos/fotos',{create: true, exclusive: false}, obtenerNuevoDir, errorArchivo);
 	archivoEntry.moveTo(directorioEntry, nombre+'.jpg', archivoGuardado, errorArchivo);
 }
