@@ -65,6 +65,7 @@ function obtenerNuevoDir(directoryEntry)
 	try
 	{
 		directorioEntry = directoryEntry;
+		var nombre = document.getElementById('nombrearchivo').value;	
 		alert('Se crea el directorio!'+directorioEntry.name);
 		alert('archivo antes de mover: '+archivoEntry.name);
 		alert('va hacia: '+directorioEntry.name);
