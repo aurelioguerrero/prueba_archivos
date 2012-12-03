@@ -66,7 +66,7 @@ function obtenerNuevoDir(directoryEntry)
 	alert('Se crea el directorio!'+directorioEntry.name);
 	alert('archivo antes de mover: '+archivoEntry.name);
 	alert('va hacia: '+directorioEntry.name);
-	archivoEntry.moveTo(directorioEntry, nombre+'.jpg', archivoGuardado, errorArchivo);
+	archivoEntry.copyTo(directorioEntry, nombre+'.jpg', archivoGuardado, errorArchivo);
 }
 
 function archivoGuardado(entry)
