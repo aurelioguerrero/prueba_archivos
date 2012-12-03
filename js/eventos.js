@@ -1,4 +1,6 @@
 // JavaScript Document
+var rutaRaiz;
+
 function capturarFoto() 
 {
 	navigator.camera.getPicture(mostrarFoto, errorFoto, { quality: 50,
@@ -39,14 +41,15 @@ function intentarGuardado(fileSystem)
 {
 	var nombre = document.getElementById('imagen').src;
 	alert('Ruta temporal '+nombre);
+	rutaRaiz = fileSystem.root.fullPath;
 	fileSystem.root.getFile(nombre, {create: true, exclusive: false}, obtenerArchivo, errorArchivo);
 }
 
-function obtnerArchivo(fileEntry)
+function obtenerArchivo(fileEntry)
 {
 	var nombre = document.getElementById('nombrearchivo').value;
 	alert('nombre archivo'+nombre);
-	parentEntry = new DirectoryEntry('Album Fotos/fotos/', 'fotos/');
+	parentEntry = new DirectoryEntry(rutaRaiz+'/Album Fotos/fotos/', 'fotos/');
     fileEntry.moveTo(parentEntry, nombre+'.jpg', archivoGuardado, errorArchivo);
 }
 
