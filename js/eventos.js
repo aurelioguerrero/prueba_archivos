@@ -58,11 +58,13 @@ function intentarGuardado(fileSystem)
 function obtenerArchivo(fileEntry)
 {	
 	archivoEntry = fileEntry;
+	alert('Se obtiene el archivo!');
 }
 
 function obtenerNuevoDir(directoryEntry)
 {
 	directorioEntry = directoryEntry;
+	alert('Se crea el directorio!');
 }
 
 function archivoGuardado(entry)
