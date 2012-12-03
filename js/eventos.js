@@ -45,7 +45,7 @@ function intentarGuardado(fileSystem)
 	alert('Ruta root '+rutaRaiz);
 	alert('Ruta archivo '+nombre.substring(rutaRaiz.length+1));
 	//fileSystem.root.getFile(nombre, {create: false, exclusive: false}, obtenerArchivo, errorArchivo);
-	fileSystem.root.getFile(nombre, {create: false, exclusive: false}, obtenerArchivo, errorArchivo);
+	fileSystem.root.getFile(nombre.substring(rutaRaiz.length+1), {create: false, exclusive: false}, obtenerArchivo, errorArchivo);
 }
 
 function obtenerArchivo(fileEntry)
