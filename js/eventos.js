@@ -1,7 +1,7 @@
 // JavaScript Document
-var rutaRaiz;
-var archivoEntry;
-var directorioEntry;
+var rutaRaiz = null;
+var archivoEntry = null;
+var directorioEntry = null;
 
 function capturarFoto() 
 {
