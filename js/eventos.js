@@ -13,7 +13,8 @@ function onDeviceReady()
 function capturarFoto() 
 {
 	navigator.camera.getPicture(mostrarFoto, errorFoto, { quality: 50,
-    													  destinationType: destinationType.FILE_URI });
+    													  destinationType: destinationType.FILE_URI,
+														  sourceType: pictureSource.CAMERA });
 }
 
 function mostrarFoto(ubicacion)
@@ -21,4 +22,9 @@ function mostrarFoto(ubicacion)
 	var imagen = document.getElementById('imagen');
 	imagen.className = 'visible';
 	imagen.src = ubicacion;
+}
+
+function errorFoto(error)
+{
+	alert('Error al generar foto: '+error);	
 }
