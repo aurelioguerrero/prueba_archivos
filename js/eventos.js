@@ -23,3 +23,24 @@ function errorFoto(error)
 {
 	alert('Error al generar foto: '+error);	
 }
+
+function errorArchivo(error)
+{
+	alert('Error al guardar archivo: '+error);
+}
+
+function guardarFoto()
+{
+	window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, intentarGuardado, errorArchivo);
+}
+
+function intentarGuardado(fileSystem)
+{
+	var nombre = document.getElementById('nombrearchivo').value;
+	fileSystem.root.getFile("album de prueba/"+nombre+'.jpg', {create: true, exclusive: false}, guardarFotoExito, errorArchivo);
+}
+
+function guardarFotoExito(fileEntry)
+{
+	alert('Se guardo con éxito en la ruta: '+fileEntry.fullPath);
+}
