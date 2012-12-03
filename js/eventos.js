@@ -58,16 +58,16 @@ function intentarGuardado(fileSystem)
 function obtenerArchivo(fileEntry)
 {	
 	archivoEntry = fileEntry;
-	alert('Se obtiene el archivo!');
+	alert('Se obtiene el archivo!'+archivoEntry.name);
 }
 
 function obtenerNuevoDir(directoryEntry)
 {
 	directorioEntry = directoryEntry;
-	alert('Se crea el directorio!');
+	alert('Se crea el directorio!'+directorioEntry.name);
 }
 
 function archivoGuardado(entry)
 {
-	alert("Se ha guardado el archivo en la ruta: "+entry.fullPath);
+	alert("Se ha guardado el archivo en la ruta: "+entry.name);
 }
