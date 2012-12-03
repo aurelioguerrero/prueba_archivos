@@ -43,7 +43,7 @@ function intentarGuardado(fileSystem)
 	alert('Ruta temporal '+nombre);
 	rutaRaiz = fileSystem.root.fullPath;
 	alert('Ruta root '+rutaRaiz);
-	alert('Ruta archivo '+nombre.substring(nombre.lastIndexOf(rutaRaiz)+1));
+	alert('Ruta archivo '+nombre.substring(rutaRaiz.length+1));
 	//fileSystem.root.getFile(nombre, {create: false, exclusive: false}, obtenerArchivo, errorArchivo);
 	fileSystem.root.getFile(nombre, {create: false, exclusive: false}, obtenerArchivo, errorArchivo);
 }
