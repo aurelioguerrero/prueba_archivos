@@ -46,7 +46,7 @@ function getListaArchivos(lista)
 			imagen.alt = 'foto';
 			vinculoImagen.appendChild(imagen);
 			eliminar.href = '#';
-			eliminar.onclick = function()
+			eliminar.onclick = eliminarArchivo(lista[i].name);/*function()
 								{
 									try
 									{
@@ -59,7 +59,7 @@ function getListaArchivos(lista)
 									{
 										alert(err);
 									}
-								}
+								}*/
 			eliminar.appendChild(textoEliminar);
 			
 			columnaImagen.appendChild(vinculoImagen);
