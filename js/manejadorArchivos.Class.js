@@ -13,7 +13,7 @@ function manejadorArchivos()
 	this.directorioRoot = null;	
 	this.guardarArchivo = guardarArchivo;
 	
-	function archivoGuardado()
+	function archivoGuardado(entry)
 	{
 		this.rutaArchivoFinal = entry.fullPath;
 	}
