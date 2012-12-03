@@ -1,18 +1,4 @@
 // JavaScript Document
-function manejadorArchivos()
-{
-	this.exito = true;
-	this.mensajeError = '';
-	this.rutaDestino = '';
-	this.rutaOrigen = '';
-	this.rutaArchivoFinal = '';
-	this.nombreArchivo = '';
-	this.rutaRaiz = null;
-	this.archivo = null;
-	this.directorioFinal = null;
-	this.directorioRoot = null;	
-	this.guardarArchivo = guardarArchivo;
-	
 	function errorArchivo(error)
 	{
 		alert('Error al guardar archivo: '+error.code);
@@ -91,4 +77,23 @@ function manejadorArchivos()
 			return false;
 		}	
 	}
+
+function manejadorArchivos()
+{
+	this.exito = true;
+	this.mensajeError = '';
+	this.rutaDestino = '';
+	this.rutaOrigen = '';
+	this.rutaArchivoFinal = '';
+	this.nombreArchivo = '';
+	this.rutaRaiz = null;
+	this.archivo = null;
+	this.directorioFinal = null;
+	this.directorioRoot = null;	
+	this.guardarArchivo = guardarArchivo;
+	this.intentarGuardado = intentarGuardado;	
+	this.obtenerArchivo = obtenerArchivo;
+	this.obtenerNuevoDir = obtenerNuevoDir;
+	this.archivoGuardado = archivoGuardado;
+	this.errorArchivo = errorArchivo;
 }

@@ -34,7 +34,7 @@ function errorArchivo(error)
 	alert('Error al guardar archivo: '+error.code);
 }
 
-function archivoGuardado(entry)
+/*function archivoGuardado(entry)
 {
 	alert("Se ha guardado el archivo en la ruta: "+entry.fullPath);
 }
@@ -80,7 +80,7 @@ function intentarGuardado(fileSystem)
 	{
 		alert("Error al recibir el directorio raiz: "+err);
 	}	
-}
+}*/
 
 function guardarFoto()
 {
