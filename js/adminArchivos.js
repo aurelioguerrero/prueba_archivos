@@ -26,7 +26,7 @@ function getListaArchivos(lista)
 	try
 	{
 		var tabla = document.getElementById('tablalista');
-		for(var i = 0; i<=lista.length; i++)
+		for(var i = 0; i<lista.length; i++)
 		{		
 			var fila = document.createElement('tr');
 			var columnaImagen = document.createElement('td');
