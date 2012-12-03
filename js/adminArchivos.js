@@ -132,3 +132,47 @@ function guardarArchivo(rutaArchivo, nombre)
 		exito = false;
 	}
 }
+
+function exitoEliminar(entry)
+{
+	try
+	{
+		var tabla = document.getElementById('tablalista');
+		var fila = document.getElementById(entry.name);
+		
+		tabla.removeChild(fila);
+		alert('Se eliminó exitosamente el archivo');
+	}
+	catch(err)
+	{
+		alert(err);
+	}
+	
+}
+
+function getArchivoEliminar(fileEntry)
+{
+	try
+	{
+		fileEntry.remove(exitoEliminar,errorArchivo);
+	}
+	catch(err)
+	{
+		alert(err);
+	}
+}
+
+function eliminarArchivo(nombreArchivo)
+{
+	try
+	{
+		if(confirm('Seguro desea eliminar el archivo '+nombreArchivo+'?'))
+		{
+			directorioArchivos.getFile(nombreArchivo,getArchivoEliminar,errorArchivo);
+		}
+	}
+	catch(err)
+	{
+		alert(err);
+	}
+}
