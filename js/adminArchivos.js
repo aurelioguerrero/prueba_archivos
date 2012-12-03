@@ -39,8 +39,8 @@ function getListaArchivos(lista)
 			
 			fila.id = lista[i].name;
 			imagen.src = lista[i].fullPath;
-			/*imagen.width = '80px';
-			imagen.height = '80px';*/
+			imagen.width = 80;
+			imagen.height = 80;
 			imagen.alt = 'foto';
 			eliminar.href = '#';
 			eliminar.onclick = "eliminarArchivo('"+lista[i].name+"');";
