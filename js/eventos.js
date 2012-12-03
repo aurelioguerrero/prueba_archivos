@@ -42,9 +42,11 @@ function archivoGuardado(entry)
 function obtenerNuevoDir(directoryEntry)
 {
 	try
-	{
+	{		
 		directorioEntry = directoryEntry;
 		alert('Se crea el directorio!'+directorioEntry.name);
+		var nombre = document.getElementById('nombrearchivo').value;
+		alert('Nombre Archivo: '+nombre);
 		archivoEntry.moveTo(directorioEntry, nombre+'.jpg', archivoGuardado, errorArchivo);
 	}
 	catch(err)
@@ -55,9 +57,16 @@ function obtenerNuevoDir(directoryEntry)
 
 function obtenerArchivo(fileEntry)
 {	
-	archivoEntry = fileEntry;
-	alert('Se obtiene el archivo!'+archivoEntry.name);
-	directorioRoot.root.getDirectory('Album Fotos',{create: true, exclusive: false}, obtenerNuevoDir, errorArchivo);
+	try
+	{
+		archivoEntry = fileEntry;
+		alert('Se obtiene el archivo!'+archivoEntry.name);
+		directorioRoot.root.getDirectory('Album Fotos',{create: true, exclusive: false}, obtenerNuevoDir, errorArchivo);
+	}
+	catch(err)
+	{
+		alert("error: "+err);
+	}
 }
 
 function intentarGuardado(fileSystem)
@@ -65,10 +74,8 @@ function intentarGuardado(fileSystem)
 	try
 	{
 		directorioRoot = fileSystem;
-		var rutaArchivo = document.getElementById('imagen').src;
-		var nombre = document.getElementById('nombrearchivo').value;	
-		alert('Ruta temporal: '+rutaArchivo);
-		alert('Nombre Archivo: '+nombre);
+		var rutaArchivo = document.getElementById('imagen').src;			
+		alert('Ruta temporal: '+rutaArchivo);		
 		
 		rutaRaiz = directorioRoot.root.fullPath;
 		alert('Ruta root: '+rutaRaiz);
