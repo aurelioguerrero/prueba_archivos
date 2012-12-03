@@ -51,8 +51,8 @@ function intentarGuardado(fileSystem)
 function obtenerArchivo(fileEntry)
 {
 	var nombre = document.getElementById('nombrearchivo').value;
-	alert('nombre archivo'+nombre);
-	parentEntry = new DirectoryEntry(rutaRaiz+'/Album Fotos/fotos', 'fotos');
+	alert('nombre archivo: '+nombre);
+	parentEntry = new DirectoryEntry('Album Fotos/fotos', 'fotos');
     fileEntry.moveTo(parentEntry, nombre+'.jpg', archivoGuardado, errorArchivo);
 }
 
