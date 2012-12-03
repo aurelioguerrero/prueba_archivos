@@ -5,6 +5,8 @@ var rutaRaiz = null;
 var archivoEntry = null;
 var directorioArchivos = null;
 var directorioRoot = null;
+var lectorArchivos = null;
+var listaArchivos = null;
 var exito = true;
 
 function errorArchivo(error)
@@ -19,54 +21,45 @@ function archivoGuardado(entry)
 	exito = true;
 }
 
-/*function obtenerNuevoDir(directoryEntry)
+function getListaArchivos(lista)
 {
-	try
+	var tabla = document.getElementById('tablalista');
+	for(var i = 0; i<=lista.length; i++)
 	{		
-		directorioEntry = directoryEntry;
-		var nombre = document.getElementById('nombrearchivo').value;
-		archivoEntry.moveTo(directorioEntry, nombre+'.jpg', archivoGuardado, errorArchivo);
-	}
-	catch(err)
-	{
-		alert("error al obtener el nuevo directorio: "+err);
+		var fila = document.createElement('tr');
+		var columnaImagen = document.createElement('td');
+		var columnaNombre = document.createElement('td');
+		var columnaEliminar = document.createElement('td');
+		var imagen = document.createElement('img');
+		var nombre = document.createTextNode(lista[i].name);
+		var eliminar = document.createElement('a');
+		var textoEliminar = document.createTextNode('Eliminar');
+		
+		fila.id = lista[i].name;
+		imagen.src = lista[i].fullPath;
+		imagen.width = '80px';
+		imagen.height = '80px';
+		eliminar.href = '#';
+		eliminar.onclick = 'eliminarArchivo('+lista[i].name+');';
+		eliminar.appendChild(textoEliminar);
+		
+		columnaImagen.appendChild(imagen);
+		columnaNombre.appendChild(nombre);
+		columnaEliminar.appendChild(eliminar);
+		fila.appendChild(columnaImagen);
+		fila.appendChild(columnaNombre);
+		fila.appendChild(columnaEliminar);
+		tabla.appendChild(fila);
 	}
 }
-
-function obtenerArchivo(fileEntry)
-{	
-	try
-	{
-		archivoEntry = fileEntry;
-		directorioRoot.root.getDirectory(nombreCarpeta,{create: true, exclusive: false}, obtenerNuevoDir, errorArchivo);
-	}
-	catch(err)
-	{
-		alert("error al obtener el nuevo archivo: "+err);
-	}
-}
-
-function intentarGuardado(fileSystem)
-{
-	try
-	{
-		directorioRoot = fileSystem;		
-		rutaRaiz = directorioRoot.root.fullPath;
-				
-		var rutaArchivo = document.getElementById('imagen').src;		
-		directorioRoot.root.getFile(rutaArchivo.substring(rutaRaiz.length+1), {create: false, exclusive: false}, obtenerArchivo, errorArchivo);		
-	}
-	catch(err)
-	{
-		alert("Error al recibir el directorio raiz: "+err);
-	}	
-}*/
 
 function getDirArchivos(directoryEntry)
 {
 	try
 	{		
 		directorioArchivos = directoryEntry;
+		lectorArchivos = directorioArchivos.createReader();
+		lectorArchivos.readEntries(getListaArchivos,errorArchivo);
 		exito = true;
 	}
 	catch(err)
