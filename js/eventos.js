@@ -28,7 +28,7 @@ function errorFoto(error)
 
 function errorArchivo(error)
 {
-	alert('Error al guardar archivo: '+error.target.error.code);
+	alert('Error al guardar archivo: '+error.code);
 }
 
 function guardarFoto()
