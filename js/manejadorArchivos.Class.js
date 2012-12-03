@@ -66,10 +66,19 @@ function manejadorArchivos()
 	
 	function guardarArchivo(nombre,rutaOrg,rutaDest)
 	{
-		this.nombreArchivo = nombre;
-		this.rutaOrigen = rutaOrg;
-		this.rutaDestino = rutaDest;
-		
-		window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, intentarGuardado, errorArchivo);
+		try
+		{
+			this.nombreArchivo = nombre;
+			this.rutaOrigen = rutaOrg;
+			this.rutaDestino = rutaDest;
+			
+			window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, intentarGuardado, errorArchivo);
+		}
+		catch(err)
+		{
+			this.mensajeError = "Error al iniciar guardado: "+err;
+			this.exito = false;
+			return false;
+		}	
 	}
 }
