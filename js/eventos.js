@@ -36,11 +36,18 @@ function guardarFoto()
 
 function intentarGuardado(fileSystem)
 {
-	var nombre = document.getElementById('nombrearchivo').value;
-	fileSystem.root.getFile("album de prueba/"+nombre+'.jpg', {create: true, exclusive: false}, guardarFotoExito, errorArchivo);
+	var nombre = document.getElementById('imagen').src;
+	fileSystem.root.getFile(nombre, {create: true, exclusive: false}, obtenerArchivo, errorArchivo);
 }
 
-function guardarFotoExito(fileEntry)
+function obtnerArchivo(fileEntry)
 {
-	alert('Se guardo con éxito en la ruta: '+fileEntry.fullPath);
+	var nombre = document.getElementById('nombrearchivo').value;
+	parentEntry = new DirectoryEntry('Album Fotos/fotos/', 'fotos/');
+    fileEntry.moveTo(parentEntry, nombre+'.jpg', archivoGuardado, errorArchivo);
+}
+
+function archivoGuardado(entry)
+{
+	alert("Se ha guardado el archivo en la ruta: "+entry.fullPath);
 }
