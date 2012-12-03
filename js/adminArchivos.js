@@ -33,20 +33,23 @@ function getListaArchivos(lista)
 			var columnaNombre = document.createElement('td');
 			var columnaEliminar = document.createElement('td');
 			var imagen = document.createElement('img');
+			var vinculoImagen = document.createElement('a');
 			var nombre = document.createTextNode(lista[i].name);
 			var eliminar = document.createElement('a');
 			var textoEliminar = document.createTextNode('Eliminar');
 			
 			fila.id = lista[i].name;
+			vinculoImagen.href = lista[i].fullPath;
 			imagen.src = lista[i].fullPath;
 			imagen.width = 80;
 			imagen.height = 80;
 			imagen.alt = 'foto';
+			vinculoImagen.appendChild(imagen);
 			eliminar.href = '#';
 			eliminar.onclick = "eliminarArchivo('"+lista[i].name+"');";
 			eliminar.appendChild(textoEliminar);
 			
-			columnaImagen.appendChild(imagen);
+			columnaImagen.appendChild(vinculoImagen);
 			columnaNombre.appendChild(nombre);
 			columnaEliminar.appendChild(eliminar);
 			fila.appendChild(columnaImagen);
