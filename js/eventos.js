@@ -1,5 +1,5 @@
 // JavaScript Document
-var pictureSource; 
+/*var pictureSource; 
 var destinationType; 
    
 document.addEventListener("deviceready",onDeviceReady,false);
@@ -10,12 +10,12 @@ function onDeviceReady()
     destinationType=navigator.camera.DestinationType;
 	alert('Dispositivo listo');
 }
-
+*/
 function capturarFoto() 
 {
 	navigator.camera.getPicture(mostrarFoto, errorFoto, { quality: 50,
-    													  destinationType: destinationType.FILE_URI,
-														  sourceType: pictureSource.CAMERA });
+    													  destinationType: navigator.camera.DestinationType.FILE_URI,
+														  sourceType: navigator.camera.DestinationType.CAMERA });
 }
 
 function mostrarFoto(ubicacion)
