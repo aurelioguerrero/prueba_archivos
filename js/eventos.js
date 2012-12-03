@@ -51,10 +51,7 @@ function intentarGuardado(fileSystem)
 	alert('Ruta archivo: '+rutaArchivo.substring(rutaRaiz.length+1));
 	
 	fileSystem.root.getFile(rutaArchivo.substring(rutaRaiz.length+1), {create: false, exclusive: false}, obtenerArchivo, errorArchivo);
-	fileSystem.root.getDirectory('Album Fotos',{create: true, exclusive: false}, obtenerNuevoDir, errorArchivo);
-	alert('archivo antes de mover: '+archivoEntry.name);
-	alert('va hacia: '+directorioEntry.name);
-	archivoEntry.moveTo(directorioEntry, nombre+'.jpg', archivoGuardado, errorArchivo);
+	fileSystem.root.getDirectory('Album Fotos',{create: true, exclusive: false}, obtenerNuevoDir, errorArchivo);	
 }
 
 function obtenerArchivo(fileEntry)
@@ -67,6 +64,9 @@ function obtenerNuevoDir(directoryEntry)
 {
 	directorioEntry = directoryEntry;
 	alert('Se crea el directorio!'+directorioEntry.name);
+	alert('archivo antes de mover: '+archivoEntry.name);
+	alert('va hacia: '+directorioEntry.name);
+	archivoEntry.moveTo(directorioEntry, nombre+'.jpg', archivoGuardado, errorArchivo);
 }
 
 function archivoGuardado(entry)
