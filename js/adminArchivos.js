@@ -39,6 +39,7 @@ function getListaArchivos(lista)
 		imagen.src = lista[i].fullPath;
 		imagen.width = '80px';
 		imagen.height = '80px';
+		imagen.alt = 'foto';
 		eliminar.href = '#';
 		eliminar.onclick = 'eliminarArchivo('+lista[i].name+');';
 		eliminar.appendChild(textoEliminar);
