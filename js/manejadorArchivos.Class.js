@@ -30,7 +30,7 @@ function manejadorArchivos()
 		try
 		{		
 			this.directorioFinal = directoryEntry;
-			this.archivo.moveTo(this.directorioFinal, this.nombreArchivo+'.jpg', archivoGuardado, errorArchivo);
+			this.archivo.moveTo(this.directorioFinal, this.nombreArchivo+'.jpg', this.archivoGuardado, this.errorArchivo);
 		}
 		catch(err)
 		{
@@ -46,7 +46,7 @@ function manejadorArchivos()
 		try
 		{
 			this.archivo = fileEntry;
-			this.directorioRoot.root.getDirectory(this.rutaDestino,{create: true, exclusive: false}, obtenerNuevoDir, errorArchivo);
+			this.directorioRoot.root.getDirectory(this.rutaDestino,{create: true, exclusive: false}, this.obtenerNuevoDir, this.errorArchivo);
 		}
 		catch(err)
 		{
@@ -63,7 +63,7 @@ function manejadorArchivos()
 		{
 			this.directorioRoot = fileSystem;		
 			this.rutaRaiz = directorioRoot.root.fullPath;	
-			this.directorioRoot.root.getFile(this.rutaOrigen.substring(this.rutaRaiz.length+1), {create: false, exclusive: false}, obtenerArchivo, errorArchivo);		
+			this.directorioRoot.root.getFile(this.rutaOrigen.substring(this.rutaRaiz.length+1), {create: false, exclusive: false}, this.obtenerArchivo, this.errorArchivo);		
 		}
 		catch(err)
 		{
@@ -82,7 +82,7 @@ function manejadorArchivos()
 			this.rutaOrigen = rutaOrg;
 			this.rutaDestino = rutaDest;
 			
-			window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, intentarGuardado, errorArchivo);
+			window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, this.intentarGuardado, this.errorArchivo);
 		}
 		catch(err)
 		{
