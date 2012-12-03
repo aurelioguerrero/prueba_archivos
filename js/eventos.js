@@ -8,6 +8,7 @@ function onDeviceReady()
 {
 	pictureSource=navigator.camera.PictureSourceType;
     destinationType=navigator.camera.DestinationType;
+	alert('Dispositivo listo');
 }
 
 function capturarFoto() 
