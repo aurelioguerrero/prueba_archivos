@@ -43,14 +43,14 @@ function intentarGuardado(fileSystem)
 	alert('Ruta temporal '+nombre);
 	rutaRaiz = fileSystem.root.fullPath;
 	alert('Ruta root '+rutaRaiz);
-	fileSystem.root.getFile(nombre, {create: true, exclusive: false}, obtenerArchivo, errorArchivo);
+	fileSystem.root.getFile(nombre, {create: false, exclusive: false}, obtenerArchivo, errorArchivo);
 }
 
 function obtenerArchivo(fileEntry)
 {
 	var nombre = document.getElementById('nombrearchivo').value;
 	alert('nombre archivo'+nombre);
-	parentEntry = new DirectoryEntry(rutaRaiz+'/Album Fotos/fotos/', 'fotos/');
+	parentEntry = new DirectoryEntry(rutaRaiz+'/Album Fotos/fotos', 'fotos');
     fileEntry.moveTo(parentEntry, nombre+'.jpg', archivoGuardado, errorArchivo);
 }
 
