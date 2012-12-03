@@ -42,6 +42,7 @@ function intentarGuardado(fileSystem)
 	var nombre = document.getElementById('imagen').src;
 	alert('Ruta temporal '+nombre);
 	rutaRaiz = fileSystem.root.fullPath;
+	alert('Ruta root '+rutaRaiz);
 	fileSystem.root.getFile(nombre, {create: true, exclusive: false}, obtenerArchivo, errorArchivo);
 }
 
