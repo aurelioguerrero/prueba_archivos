@@ -15,11 +15,13 @@ function manejadorArchivos()
 	
 	function archivoGuardado(entry)
 	{
+		alert('Archivo guardado');
 		this.rutaArchivoFinal = entry.fullPath;
 	}
 	
 	function obtenerNuevoDir(directoryEntry)
 	{
+		alert('Obtener Directorio');
 		try
 		{		
 			this.directorioFinal = directoryEntry;
@@ -35,6 +37,7 @@ function manejadorArchivos()
 	
 	function obtenerArchivo(fileEntry)
 	{
+		alert('ObtenerArchivo');
 		try
 		{
 			this.archivo = fileEntry;
@@ -50,6 +53,7 @@ function manejadorArchivos()
 	
 	function intentarGuardado(fileSystem)
 	{
+		alert('Intentar Guardado');
 		try
 		{
 			this.directorioRoot = fileSystem;		
@@ -66,6 +70,7 @@ function manejadorArchivos()
 	
 	function guardarArchivo(nombre,rutaOrg,rutaDest)
 	{
+		alert('Gurardar Archivo');
 		try
 		{
 			this.nombreArchivo = nombre;
