@@ -94,7 +94,7 @@ function guardarFoto()
 		}
 		else
 		{
-			var manejardor = new manejadorArchivos();
+			var manejador = new manejadorArchivos();
 			manejador.guardarArchivo(document.getElementById('nombrearchivo').value,document.getElementById('imagen').src,'Album Fotos');
 			if(manejador.exito)
 			{
