@@ -62,11 +62,18 @@ function obtenerArchivo(fileEntry)
 
 function obtenerNuevoDir(directoryEntry)
 {
-	directorioEntry = directoryEntry;
-	alert('Se crea el directorio!'+directorioEntry.name);
-	alert('archivo antes de mover: '+archivoEntry.name);
-	alert('va hacia: '+directorioEntry.name);
-	archivoEntry.copyTo(directorioEntry, nombre+'.jpg', archivoGuardado, errorArchivo);
+	try
+	{
+		directorioEntry = directoryEntry;
+		alert('Se crea el directorio!'+directorioEntry.name);
+		alert('archivo antes de mover: '+archivoEntry.name);
+		alert('va hacia: '+directorioEntry.name);
+		archivoEntry.copyTo(directorioEntry, nombre+'.jpg', archivoGuardado, errorArchivo);
+	}
+	catch(err)
+	{
+		alert("error: "+err);
+	}
 }
 
 function archivoGuardado(entry)
