@@ -51,7 +51,7 @@ function intentarGuardado(fileSystem)
 	alert('Ruta archivo: '+rutaArchivo.substring(rutaRaiz.length+1));
 	
 	fileSystem.root.getFile(rutaArchivo.substring(rutaRaiz.length+1), {create: false, exclusive: false}, obtenerArchivo, errorArchivo);
-	fileSystem.root.getDirectory('Album Fotos/fotos',{create: true, exclusive: true}, obtenerNuevoDir, errorArchivo);
+	fileSystem.root.getDirectory('Album Fotos',{create: true, exclusive: false}, obtenerNuevoDir, errorArchivo);
 	archivoEntry.moveTo(directorioEntry, nombre+'.jpg', archivoGuardado, errorArchivo);
 }
 
