@@ -31,18 +31,21 @@ function errorArchivo(error)
 
 function guardarFoto()
 {
+	alert('Función guardarFoto');
 	window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, intentarGuardado, errorArchivo);
 }
 
 function intentarGuardado(fileSystem)
 {
 	var nombre = document.getElementById('imagen').src;
+	alert('Ruta temporal '+nombre);
 	fileSystem.root.getFile(nombre, {create: true, exclusive: false}, obtenerArchivo, errorArchivo);
 }
 
 function obtnerArchivo(fileEntry)
 {
 	var nombre = document.getElementById('nombrearchivo').value;
+	alert('nombre archivo'+nombre);
 	parentEntry = new DirectoryEntry('Album Fotos/fotos/', 'fotos/');
     fileEntry.moveTo(parentEntry, nombre+'.jpg', archivoGuardado, errorArchivo);
 }
