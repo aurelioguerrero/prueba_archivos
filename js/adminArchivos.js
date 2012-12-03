@@ -46,20 +46,21 @@ function getListaArchivos(lista)
 			imagen.alt = 'foto';
 			vinculoImagen.appendChild(imagen);
 			eliminar.href = '#';
-			eliminar.onclick = eliminarArchivo(lista[i].name);/*function()
+			eliminar.onclick = function()
 								{
 									try
 									{
-										if(confirm('Seguro desea eliminar el archivo '+lista[i].name+'?'))
+										var nombre = this.parentNode.parentNode.id;
+										if(confirm('Seguro desea eliminar el archivo '+nombre+'?'))
 										{
-											directorioArchivos.getFile(lista[i].name,getArchivoEliminar,errorArchivo);
+											directorioArchivos.getFile(nombre,getArchivoEliminar,errorArchivo);
 										}
 									}
 									catch(err)
 									{
 										alert(err);
 									}
-								}*/
+								}
 			eliminar.appendChild(textoEliminar);
 			
 			columnaImagen.appendChild(vinculoImagen);
