@@ -1,16 +1,4 @@
 // JavaScript Document
-/*var pictureSource; 
-var destinationType; 
-   
-document.addEventListener("deviceready",onDeviceReady,false);
-
-function onDeviceReady() 
-{
-	pictureSource=navigator.camera.PictureSourceType;
-    destinationType=navigator.camera.DestinationType;
-	alert('Dispositivo listo');
-}
-*/
 function capturarFoto() 
 {
 	navigator.camera.getPicture(mostrarFoto, errorFoto, { quality: 50,
@@ -23,6 +11,12 @@ function mostrarFoto(ubicacion)
 	var imagen = document.getElementById('imagen');
 	imagen.className = 'visible';
 	imagen.src = ubicacion;
+	
+	var nombre = document.getElementById('divnombre');
+	nombre.className = 'visible';
+	
+	var boton = document.getElementById('btnguardar');
+	boton.className = 'Visible';
 }
 
 function errorFoto(error)
