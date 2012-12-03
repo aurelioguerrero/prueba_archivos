@@ -1,5 +1,7 @@
 // JavaScript Document
 var rutaRaiz;
+var archivoEntry;
+var directorioEntry;
 
 function capturarFoto() 
 {
@@ -39,21 +41,28 @@ function guardarFoto()
 
 function intentarGuardado(fileSystem)
 {
-	var nombre = document.getElementById('imagen').src;
-	alert('Ruta temporal '+nombre);
+	var rutaArchivo = document.getElementById('imagen').src;
+	var nombre = document.getElementById('nombrearchivo').value;	
+	alert('Ruta temporal: '+rutaArchivo);
+	alert('Nombre Archivo: '+nombre);
+	
 	rutaRaiz = fileSystem.root.fullPath;
-	alert('Ruta root '+rutaRaiz);
-	alert('Ruta archivo '+nombre.substring(rutaRaiz.length+1));
-	//fileSystem.root.getFile(nombre, {create: false, exclusive: false}, obtenerArchivo, errorArchivo);
+	alert('Ruta root: '+rutaRaiz);
+	alert('Ruta archivo: '+nombre.substring(rutaRaiz.length+1));
+	
 	fileSystem.root.getFile(nombre.substring(rutaRaiz.length+1), {create: false, exclusive: false}, obtenerArchivo, errorArchivo);
+	fileSystem.root.getDirectory('Album Fotos/fotos',{create: true, exclusive: false}, obtenerNuevoDir, errorArchivo);
+	archivoEntry.moveTo(directorioEntry, nombre+'.jpg', archivoGuardado, errorArchivo);
 }
 
 function obtenerArchivo(fileEntry)
+{	
+	archivoEntry = fileEntry;
+}
+
+function obtenerNuevoDir(directoryEntry)
 {
-	var nombre = document.getElementById('nombrearchivo').value;
-	alert('nombre archivo: '+nombre);
-	parentEntry = new DirectoryEntry('Album Fotos/fotos', 'fotos');
-    fileEntry.moveTo(parentEntry, nombre+'.jpg', archivoGuardado, errorArchivo);
+	directorioEntry = directoryEntry;
 }
 
 function archivoGuardado(entry)
