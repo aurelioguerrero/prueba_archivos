@@ -53,7 +53,7 @@ function getListaArchivos(lista)
 										var nombre = this.parentNode.parentNode.id;
 										if(confirm('Seguro desea eliminar el archivo '+nombre+'?'))
 										{
-											directorioArchivos.getFile(nombre,getArchivoEliminar,errorArchivo);
+											directorioArchivos.getFile(nombre,{create: false, exclusive: false},getArchivoEliminar,errorArchivo);
 										}
 									}
 									catch(err)
