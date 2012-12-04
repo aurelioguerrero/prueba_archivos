@@ -50,8 +50,8 @@ function getListaArchivos(lista)
 								{
 									try
 									{
-										var nombre = this.parentNode.parentNode.id;
-										if(confirm('Seguro desea eliminar el archivo '+nombre+'?'))
+										nombreArchivo = this.parentNode.parentNode.id;
+										if(confirm('Seguro desea eliminar el archivo '+nombreArchivo+'?'))
 										{
 											directorioArchivos.getFile(nombre,{create: false, exclusive: false},getArchivoEliminar,errorArchivo);
 										}
@@ -174,21 +174,5 @@ function getArchivoEliminar(fileEntry)
 	catch(err)
 	{
 		alert('Error al intentar eliminar el archivo: '+err);
-	}
-}
-
-function eliminarArchivo(nombreFile)
-{
-	try
-	{
-		nombreArchivo = nombreFile;
-		if(confirm('Seguro desea eliminar el archivo '+nombreArchivo+'?'))
-		{
-			directorioArchivos.getFile(nombreArchivo,getArchivoEliminar,errorArchivo);
-		}
-	}
-	catch(err)
-	{
-		alert('Error al intentar adquirir el archivo: '+err);
 	}
 }
