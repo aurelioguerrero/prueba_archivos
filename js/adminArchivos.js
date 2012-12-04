@@ -181,7 +181,7 @@ function eliminarArchivo(nombreFile)
 {
 	try
 	{
-		nombreArchivo = nombreFile
+		nombreArchivo = nombreFile;
 		if(confirm('Seguro desea eliminar el archivo '+nombreArchivo+'?'))
 		{
 			directorioArchivos.getFile(nombreArchivo,getArchivoEliminar,errorArchivo);
