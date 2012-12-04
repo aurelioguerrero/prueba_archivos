@@ -1,12 +1,12 @@
 // JavaScript Document
 var nombreCarpeta = 'Album Fotos';
-var nombreArchivo = null;
-var rutaRaiz = null;
-var archivoEntry = null;
-var directorioArchivos = null;
-var directorioRoot = null;
-var lectorArchivos = null;
-var listaArchivos = null;
+var nombreArchivo;
+var rutaRaiz;
+var archivoEntry;
+var directorioArchivos;
+var directorioRoot;
+var lectorArchivos;
+var listaArchivos;
 var exito = true;
 
 function errorArchivo(error)
