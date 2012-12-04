@@ -147,12 +147,12 @@ function guardarArchivo(rutaArchivo, nombre)
 	}
 }
 
-function exitoEliminar(entry)
+function exitoEliminar()
 {
 	try
 	{
 		var tabla = document.getElementById('tablalista');
-		var fila = document.getElementById(entry.name);
+		var fila = document.getElementById(nombreArchivo);
 		
 		tabla.removeChild(fila);
 		alert('Se eliminó exitosamente el archivo');
@@ -176,10 +176,11 @@ function getArchivoEliminar(fileEntry)
 	}
 }
 
-function eliminarArchivo(nombreArchivo)
+function eliminarArchivo(nombreFile)
 {
 	try
 	{
+		nombreArchivo = nombreFile
 		if(confirm('Seguro desea eliminar el archivo '+nombreArchivo+'?'))
 		{
 			directorioArchivos.getFile(nombreArchivo,getArchivoEliminar,errorArchivo);
