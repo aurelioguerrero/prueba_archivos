@@ -160,7 +160,7 @@ function exitoEliminar()
 	}
 	catch(err)
 	{
-		alert(err);
+		alert('Error al intentar eliminar el archivo de la lista: '+err);
 	}
 	
 }
@@ -173,7 +173,7 @@ function getArchivoEliminar(fileEntry)
 	}
 	catch(err)
 	{
-		alert(err);
+		alert('Error al intentar eliminar el archivo: '+err);
 	}
 }
 
@@ -189,6 +189,6 @@ function eliminarArchivo(nombreFile)
 	}
 	catch(err)
 	{
-		alert(err);
+		alert('Error al intentar adquirir el archivo: '+err);
 	}
 }
