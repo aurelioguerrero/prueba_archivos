@@ -152,7 +152,7 @@ function exitoEliminar()
 	try
 	{
 		var tabla = document.getElementById('tablalista');
-		var fila = tabla.getElementById(nombreArchivo);
+		var fila = document.getElementById(nombreArchivo);
 		
 		tabla.removeChild(fila);
 		alert('Se eliminó exitosamente el archivo');
