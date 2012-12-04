@@ -149,18 +149,19 @@ function guardarArchivo(rutaArchivo, nombre)
 
 function exitoEliminar()
 {
-	/*try
-	{*/
+	try
+	{
+		
+		alert('Se eliminó exitosamente el archivo '+nombreArchivo);
 		var tabla = document.getElementById('tablalista');
 		var fila = document.getElementById(nombreArchivo);
 		
 		tabla.removeChild(fila);
-		alert('Se eliminó exitosamente el archivo '+nombreArchivo);
-	/*}
+	}
 	catch(err)
 	{
 		alert(err);
-	}*/
+	}
 	
 }
 
