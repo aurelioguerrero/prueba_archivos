@@ -155,7 +155,7 @@ function exitoEliminar()
 		var fila = document.getElementById(nombreArchivo);
 		
 		tabla.removeChild(fila);
-		alert('Se eliminó exitosamente el archivo');
+		alert('Se eliminó exitosamente el archivo '+nombreArchivo);
 	}
 	catch(err)
 	{
