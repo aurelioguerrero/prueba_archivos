@@ -82,6 +82,7 @@ function getDirArchivos(directoryEntry)
 	try
 	{		
 		directorioArchivos = directoryEntry;
+		alert(directorioArchivos.toURL());
 		lectorArchivos = directorioArchivos.createReader();
 		lectorArchivos.readEntries(getListaArchivos,errorArchivo);
 		exito = true;
